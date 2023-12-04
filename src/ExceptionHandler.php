@@ -32,8 +32,8 @@ use Whoops\Run;
 
 /**
  * ExceptionHandler class.
- * 
- * The `ExceptionHandler` class provides utility methods for handling exceptions 
+ *
+ * The `ExceptionHandler` class provides utility methods for handling exceptions
  * in Omega applications.
  *
  * @category    Omega
@@ -45,17 +45,17 @@ use Whoops\Run;
  */
 class ExceptionHandler
 {
-    /** 
-     * Show Throwable 
-     * 
-     * This method handles and displays exceptions or errors based on the environment. 
-     * In a development environment ('APP_ENV' === 'dev'), it displays detailed error 
+    /**
+     * Show Throwable
+     *
+     * This method handles and displays exceptions or errors based on the environment.
+     * In a development environment ('APP_ENV' === 'dev'), it displays detailed error
      * information using the Whoops error handler. In other environments, it may perform
-     * different actions depending on the type of exception. 
-     * 
-     * @param  Throwable $throwable Holds an instance of Throwable (Exception or Error). 
-     * @return mixed Returns a response or performs actions based on the exception type. 
-     * @throws Throwable 
+     * different actions depending on the type of exception.
+     *
+     * @param  Throwable $throwable Holds an instance of Throwable (Exception or Error).
+     * @return mixed Returns a response or performs actions based on the exception type.
+     * @throws Throwable
      */
     public function showThrowable( Throwable $throwable ) : mixed
     {
@@ -70,15 +70,15 @@ class ExceptionHandler
         return null;
     }
 
-    /** 
-    * Show Validation Exception 
-    * 
-    * This method handles ValidationExceptions by storing error messages in the session 
-    * (if available) and redirecting back to the previous page. Useful for displaying 
-    * validation errors to the user. 
-    * 
-    * @param ValidationException $exception Holds an instance of ValidationException. 
-    * @return mixed Returns a redirection or performs actions based on the exception. 
+    /**
+    * Show Validation Exception
+    *
+    * This method handles ValidationExceptions by storing error messages in the session
+    * (if available) and redirecting back to the previous page. Useful for displaying
+    * validation errors to the user.
+    *
+    * @param ValidationException $exception Holds an instance of ValidationException.
+    * @return mixed Returns a redirection or performs actions based on the exception.
     */
     public function showValidationException( ValidationException $exception ) : mixed
     {
@@ -89,15 +89,15 @@ class ExceptionHandler
         return Alias::redirect( Alias::env( 'HTTP_REFERER' ) );
     }
 
-    /** 
-     * Initialize Whoops 
-     * 
-     * This method initializes the Whoops error handler for displaying user-friendly 
-     * error pages in a development environment ('APP_ENV' === 'dev'). 
-     * 
-     * @param  Throwable $throwable Holds an instance of Throwable (Exception or Error). 
-     * @return void 
-     * @throws Throwable 
+    /**
+     * Initialize Whoops
+     *
+     * This method initializes the Whoops error handler for displaying user-friendly
+     * error pages in a development environment ('APP_ENV' === 'dev').
+     *
+     * @param  Throwable $throwable Holds an instance of Throwable (Exception or Error).
+     * @return void
+     * @throws Throwable
      */
     public function showFriendlyThrowable( Throwable $throwable ) : void
     {
