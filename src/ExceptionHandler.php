@@ -21,10 +21,9 @@ namespace Omega\Exceptions;
 /**
  * @use
  */
-use function env;
-use function redirect;
-use function session;
-use Omega\Helpers\Alias;
+use function Omega\Helpers\env;
+use function Omega\Helpers\redirect;
+use function Omega\Helpers\session;
 use Omega\Validation\Exceptions\ValidationException;
 use Throwable;
 use Whoops\Handler\PrettyPageHandler;
@@ -82,11 +81,11 @@ class ExceptionHandler
     */
     public function showValidationException( ValidationException $exception ) : mixed
     {
-        if ( $session = Alias::session() ) {
+        if ( $session = session() ) {
             $session->put( $exception->getSessionName(), $exception->getErrors() );
         }
 
-        return Alias::redirect( Alias::env( 'HTTP_REFERER' ) );
+        return redirect( env( 'HTTP_REFERER' ) );
     }
 
     /**
