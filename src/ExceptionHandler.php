@@ -82,7 +82,7 @@ class ExceptionHandler
             $session->put( $exception->getSessionName(), $exception->getErrors() );
         }
 
-        return redirect( env( 'HTTP_REFERER' ) );
+        return redirect( $_SERVER[ 'HTTP_REFERER' ] );
     }
 
     /**
