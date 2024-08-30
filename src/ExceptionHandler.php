@@ -21,6 +21,7 @@ namespace Omega\Exceptions;
 /**
  * @use
  */
+use Omega\Session\Storage\NativeStorage;
 use Omega\Validation\Exception\ValidationException;
 use Throwable;
 use Whoops\Handler\PrettyPageHandler;
@@ -78,7 +79,11 @@ class ExceptionHandler
     */
     public function showValidationException( ValidationException $exception ) : mixed
     {
+        // Assuming the session() function returns an instance of a session management class.
+        $session = session();
+
         if ( $session = session() ) {
+            /** @var NativeStorage $session */
             $session->put( $exception->getSessionName(), $exception->getErrors() );
         }
 
