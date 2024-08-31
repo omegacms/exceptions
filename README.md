@@ -1,3 +1,4 @@
+![PHPStan Level](https://img.shields.io/badge/PHPStan-level_9-brightgreen)
 # Exceptions Package
 
 The Exceptions package provides utility methods for handling exceptions in OmegaCMS applications.
