@@ -17,6 +17,9 @@
     "php": ">=8.2",
     "omegacms/validation": "^1.0.0",
   },
+  "require-dev": {
+	"filp/whoops": "^2.15"
+  },
   "autoload": {
     "psr-4": {
       "Omega\\Exceptions\\": "src/"
