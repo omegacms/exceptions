@@ -60,7 +60,7 @@ class ExceptionHandler
             return $this->showValidationException( $throwable );
         }
 
-        if ( isset( $_ENV[ 'APP_ENV' ] ) && $_ENV[ 'APP_ENV' ] === 'dev' ) {
+        if ( env( 'APP_ENV' ) && env( 'APP_ENV' ) === 'dev' ) {
             $this->showFriendlyThrowable( $throwable );
         }
 
